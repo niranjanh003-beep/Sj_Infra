@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Detail — SJ Infra, Ballari</title>
+<meta name="description" content="Project detail page template for SJ Infra — replace with real project information.">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+<div class="mobile-menu" id="mobileMenu"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../projects.html">Projects</a> / Project Detail</div>
+      <span class="eyebrow" id="projCategory">Project</span>
+      <h1 class="h1" style="margin-top:18px;" id="projTitle">[Add project name]</h1>
+      <p class="lede" style="color:rgba(247,245,239,.75); margin-top:16px;" id="projMeta">Location &middot; Year &middot; Area</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="disclaimer-box" style="margin-bottom:44px;" id="templateDisclaimer">
+        <strong>Placeholder page:</strong> this is a template for a single project detail view. Replace this content with the real project's story, photos and specifics — this exact layout (title, meta, gallery, description, spec list) is what each real project page should follow.
+      </div>
+      <div class="photo-block" id="projHeroMedia" style="min-height:420px; margin-bottom:50px;"><div class="ph-cross"></div></div>
+
+      <div class="two-col-text">
+        <div>
+          <h2>The Brief</h2>
+          <p class="lede" style="max-width:none; margin-top:16px;" id="projBrief">[Describe the client's brief, the plot conditions and the goal for this project.]</p>
+          <h2 style="margin-top:40px;">The Approach</h2>
+          <p class="lede" style="max-width:none; margin-top:16px;" id="projApproach">[Describe the design decisions, material tier chosen, and any notable site challenges solved.]</p>
+        </div>
+        <div>
+          <h2>Project Specs</h2>
+          <table class="spec-table" style="margin-top:16px;">
+            <tr><th>Category</th><td id="specCategory">—</td></tr>
+            <tr><th>Location</th><td id="specLocation">—</td></tr>
+            <tr><th>Built-up Area</th><td id="specArea">—</td></tr>
+            <tr><th>Year</th><td id="specYear">—</td></tr>
+            <tr><th>Material Tier</th><td id="specTier">[Add tier]</td></tr>
+            <tr><th>Duration</th><td id="specDuration">[Add build duration]</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <h2 style="margin-top:70px; margin-bottom:24px;">Gallery</h2>
+      <div class="gallery-masonry" id="projGallery">
+        <div class="gallery-item"><div class="ph-block"><span class="ph-label">Add photo 1</span></div></div>
+        <div class="gallery-item"><div class="ph-block" style="min-height:300px;"><span class="ph-label">Add photo 2</span></div></div>
+        <div class="gallery-item"><div class="ph-block" style="min-height:180px;"><span class="ph-label">Add photo 3</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-dark text-center">
+    <div class="container">
+      <h2 style="max-width:20ch; margin:0 auto;">Want a similar project built for you?</h2>
+      <div class="hero-ctas" style="justify-content:center; margin-top:34px;">
+        <a href="../contact.html" class="btn btn-gold">Start Your Project <span class="btn-arrow">&#8599;</span></a>
+        <a href="../projects.html" class="btn btn-outline on-dark">Back to Projects</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+<div class="floating-contact" id="floatingContact"></div>
+
+<script src="../js/content.js"></script>
+<script src="../js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+  const p = PROJECTS.find(x => x.id === id) || PROJECTS[0];
+  document.getElementById("projCategory").textContent = p.category;
+  document.getElementById("projTitle").textContent = p.title;
+  document.getElementById("projMeta").textContent = `${p.location} \u00b7 ${p.year} \u00b7 ${p.area}`;
+  document.getElementById("specCategory").textContent = p.category;
+  document.getElementById("specLocation").textContent = p.location;
+  document.getElementById("specArea").textContent = p.area;
+  document.getElementById("specYear").textContent = p.year;
+
+  if (p.cover) {
+    // Real, sourced project — hide the template disclaimer and populate real assets.
+    document.getElementById("templateDisclaimer").style.display = "none";
+    document.getElementById("projHeroMedia").innerHTML =
+      `<img src="${relPrefix()}${p.cover}" alt="${p.title}" loading="eager" style="width:100%;height:100%;object-fit:cover;">`;
+    document.getElementById("specTier").textContent = "To be confirmed";
+    document.getElementById("specDuration").textContent = "To be confirmed";
+    document.getElementById("projBrief").textContent =
+      "Brief details for this project have not yet been supplied by SJ Infra — this page currently shows verified site photography only, sourced from the company's own photo library.";
+    document.getElementById("projApproach").textContent =
+      "Design and material approach notes have not yet been supplied — contact SJ Infra directly for details on this project.";
+    if (p.gallery && p.gallery.length) {
+      const heights = [280, 340, 220];
+      document.getElementById("projGallery").innerHTML = p.gallery.map((src, i) => `
+        <div class="gallery-item photo-block" style="min-height:${heights[i % heights.length]}px;">
+          <img src="${relPrefix()}${src}" alt="${p.title} — photo ${i+1}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+      `).join("");
+    }
+  }
+});
+</script>
+</body>
+</html>

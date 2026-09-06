@@ -1,0 +1,290 @@
+[
+  {
+    "source": "assets/source/property-c-livingroom-wide.png",
+    "processed": "assets/processed/hero/home-hero-1920.webp",
+    "website_location": "Homepage hero (1920w)",
+    "ratio": "21:9",
+    "dimensions": "1920x822",
+    "processing": "Crop to 21:9, remove phone-UI badge, contrast+color+sharpen enhance, resize",
+    "quality_score": "Excellent"
+  },
+  {
+    "source": "assets/source/property-c-livingroom-wide.png",
+    "processed": "assets/processed/hero/home-hero-1440.webp",
+    "website_location": "Homepage hero (1440w)",
+    "ratio": "21:9",
+    "dimensions": "1440x616",
+    "processing": "Same as above, resized",
+    "quality_score": "Excellent"
+  },
+  {
+    "source": "assets/source/property-c-livingroom-wide.png",
+    "processed": "assets/processed/hero/home-hero-1024.webp",
+    "website_location": "Homepage hero (1024w)",
+    "ratio": "21:9",
+    "dimensions": "1024x438",
+    "processing": "Same as above, resized",
+    "quality_score": "Excellent"
+  },
+  {
+    "source": "assets/source/property-c-livingroom-wide.png",
+    "processed": "assets/processed/hero/home-hero-768.webp",
+    "website_location": "Homepage hero (768w, mobile)",
+    "ratio": "16:9",
+    "dimensions": "768x328",
+    "processing": "Same as above, resized for mobile",
+    "quality_score": "Excellent"
+  },
+  {
+    "source": "assets/source/property-c-livingroom-wide.png",
+    "processed": "assets/processed/hero/home-hero-480.webp",
+    "website_location": "Homepage hero (480w, mobile)",
+    "ratio": "16:9",
+    "dimensions": "480x205",
+    "processing": "Same as above, resized for mobile",
+    "quality_score": "Excellent"
+  },
+  {
+    "source": "assets/source/property-c-elevator-stairs.png",
+    "processed": "assets/processed/interiors/about-teaser.webp",
+    "website_location": "Homepage About teaser",
+    "ratio": "4:5",
+    "dimensions": "900x1124",
+    "processing": "Crop to 4:5, badge removed, enhanced",
+    "quality_score": "Excellent"
+  },
+  {
+    "source": "assets/source/property-b-marble-room.png",
+    "processed": "assets/processed/interiors/interior-hero.webp",
+    "website_location": "Interior category hero",
+    "ratio": "4:5",
+    "dimensions": "1200x1499",
+    "processing": "Crop to 4:5, badge removed, enhanced",
+    "quality_score": "Excellent"
+  },
+  {
+    "source": "assets/source/property-innovation-staircase.png",
+    "processed": "assets/processed/interiors/innovation-staircase.webp",
+    "website_location": "Services.html calculator preview; Innovation gallery item",
+    "ratio": "4:5",
+    "dimensions": "1000x1249",
+    "processing": "Crop to 4:5, badge removed, enhanced",
+    "quality_score": "Good"
+  },
+  {
+    "source": "assets/source/property-b-kitchen-geometric.png",
+    "processed": "assets/processed/interiors/calculator-preview.webp",
+    "website_location": "Homepage calculator CTA",
+    "ratio": "4:3",
+    "dimensions": "900x675",
+    "processing": "Crop to 4:3, badge removed, enhanced",
+    "quality_score": "Excellent"
+  },
+  {
+    "source": "assets/source/rams-bungalow-exterior-1.png",
+    "processed": "assets/processed/exteriors/residential-hero.webp",
+    "website_location": "Residential category hero; Projects \u2014 Ram's Bungalow cover",
+    "ratio": "3:2",
+    "dimensions": "1400x932",
+    "processing": "Crop to 3:2, badge removed, enhanced",
+    "quality_score": "Excellent"
+  },
+  {
+    "source": "assets/source/bharathiya-bakery-exterior.png",
+    "processed": "assets/processed/exteriors/commercial-hero.webp",
+    "website_location": "Commercial category hero; Projects \u2014 Bharathiya Milk Products cover",
+    "ratio": "16:9",
+    "dimensions": "1400x786",
+    "processing": "Crop to 16:9, badge removed, enhanced",
+    "quality_score": "Excellent"
+  },
+  {
+    "source": "assets/source/property-a-exterior-01.jpg",
+    "processed": "assets/processed/exteriors/exterior-detail.webp",
+    "website_location": "Exterior category detail; Ram's Bungalow gallery",
+    "ratio": "4:3",
+    "dimensions": "1200x899",
+    "processing": "Crop to 4:3, enhanced",
+    "quality_score": "Good"
+  },
+  {
+    "source": "assets/source/property-g-kitchen-grey-1.png",
+    "processed": "assets/processed/construction/construction-progress.webp",
+    "website_location": "Construction category",
+    "ratio": "4:3",
+    "dimensions": "1200x900",
+    "processing": "Crop to 4:3, badge removed, enhanced",
+    "quality_score": "Good"
+  },
+  {
+    "source": "assets/source/rams-bungalow-process.png",
+    "processed": "assets/processed/construction/site-visit.webp",
+    "website_location": "Site Progress category; 404 page hero",
+    "ratio": "4:3",
+    "dimensions": "1200x900",
+    "processing": "Crop to 4:3, badge removed, enhanced",
+    "quality_score": "Needs enhancement (people/debris in frame)"
+  },
+  {
+    "source": "assets/source/rams-bungalow-exterior-2.png",
+    "processed": "assets/processed/services/svc-residential-construction.webp",
+    "website_location": "Homepage sector tile + Residential Construction service page hero",
+    "ratio": "1:1",
+    "dimensions": "800x800",
+    "processing": "Crop to 1:1, badge removed, enhanced",
+    "quality_score": "Excellent"
+  },
+  {
+    "source": "assets/source/bharathiya-bakery-exterior.png",
+    "processed": "assets/processed/services/svc-commercial-construction.webp",
+    "website_location": "Homepage sector tile + Commercial Construction service page hero",
+    "ratio": "1:1",
+    "dimensions": "800x800",
+    "processing": "Crop to 1:1, badge removed, enhanced",
+    "quality_score": "Excellent"
+  },
+  {
+    "source": "assets/source/property-f-kitchen-rose-wide.png",
+    "processed": "assets/processed/services/svc-interior-design.webp",
+    "website_location": "Homepage sector tile + Interior Design service page hero",
+    "ratio": "1:1",
+    "dimensions": "800x800",
+    "processing": "Crop to 1:1, badge removed, enhanced",
+    "quality_score": "Good"
+  },
+  {
+    "source": "assets/source/property-b-entrance-ceiling.png",
+    "processed": "assets/processed/services/svc-exterior-design.webp",
+    "website_location": "Homepage sector tile + Exterior Design service page hero",
+    "ratio": "1:1",
+    "dimensions": "800x800",
+    "processing": "Crop to 1:1, badge removed, enhanced",
+    "quality_score": "Excellent"
+  },
+  {
+    "source": "assets/source/property-c-livingroom-wide.png",
+    "processed": "assets/processed/services/svc-layout-planning.webp",
+    "website_location": "Homepage sector tile + Layout Planning service page hero",
+    "ratio": "1:1",
+    "dimensions": "800x800",
+    "processing": "Crop to 1:1, badge removed, enhanced",
+    "quality_score": "Good"
+  },
+  {
+    "source": "assets/source/rams-bungalow-process.png",
+    "processed": "assets/processed/services/svc-renovation.webp",
+    "website_location": "Homepage sector tile + Renovation service page hero",
+    "ratio": "1:1",
+    "dimensions": "800x800",
+    "processing": "Crop to 1:1, badge removed, enhanced",
+    "quality_score": "Needs enhancement (people/debris in frame)"
+  },
+  {
+    "source": "assets/source/property-g-kitchen-grey-2.png",
+    "processed": "assets/processed/services/svc-project-management.webp",
+    "website_location": "Homepage sector tile + Project Management service page hero",
+    "ratio": "1:1",
+    "dimensions": "800x800",
+    "processing": "Crop to 1:1, badge removed, enhanced",
+    "quality_score": "Good"
+  },
+  {
+    "source": "assets/source/property-b-entrance-ceiling.png",
+    "processed": "assets/processed/gallery/sj-infra-entrance-ceiling-detail.webp",
+    "website_location": "Gallery \u2014 Materials",
+    "ratio": "4:3",
+    "dimensions": "900x674",
+    "processing": "Crop to 4:3, badge removed, enhanced",
+    "quality_score": "Excellent"
+  },
+  {
+    "source": "assets/source/property-b-door-frame.png",
+    "processed": "assets/processed/gallery/sj-infra-carved-entrance-door.webp",
+    "website_location": "Gallery \u2014 Materials; About page feature image",
+    "ratio": "4:5",
+    "dimensions": "900x1125",
+    "processing": "Crop to 4:5, badge removed, enhanced",
+    "quality_score": "Excellent"
+  },
+  {
+    "source": "assets/source/property-b-jaali-wash.png",
+    "processed": "assets/processed/gallery/sj-infra-jaali-screen-interior.webp",
+    "website_location": "Gallery \u2014 Materials",
+    "ratio": "4:3",
+    "dimensions": "900x674",
+    "processing": "Crop to 4:3, badge removed, enhanced",
+    "quality_score": "Excellent"
+  },
+  {
+    "source": "assets/source/property-f-kitchen-rose.png",
+    "processed": "assets/processed/gallery/sj-infra-modular-kitchen-interior.webp",
+    "website_location": "Gallery \u2014 Interiors",
+    "ratio": "4:3",
+    "dimensions": "900x675",
+    "processing": "Crop to 4:3, badge removed, enhanced",
+    "quality_score": "Excellent"
+  },
+  {
+    "source": "assets/source/property-e-granite-stairs.png",
+    "processed": "assets/processed/gallery/sj-infra-granite-staircase-detail.webp",
+    "website_location": "Gallery \u2014 Materials",
+    "ratio": "4:5",
+    "dimensions": "900x1125",
+    "processing": "Crop to 4:5, badge removed, enhanced",
+    "quality_score": "Excellent"
+  },
+  {
+    "source": "assets/source/property-c-elevator-panel.png",
+    "processed": "assets/processed/gallery/sj-infra-wall-relief-panel-detail.webp",
+    "website_location": "Gallery \u2014 Materials",
+    "ratio": "4:5",
+    "dimensions": "900x1125",
+    "processing": "Crop to 4:5, badge removed, enhanced",
+    "quality_score": "Excellent"
+  },
+  {
+    "source": "assets/source/bharathiya-bakery-interior-1.png",
+    "processed": "assets/processed/gallery/sj-infra-commercial-retail-interior.webp",
+    "website_location": "Gallery \u2014 Interiors; Bharathiya project gallery",
+    "ratio": "4:3",
+    "dimensions": "900x674",
+    "processing": "Crop to 4:3, badge removed, enhanced",
+    "quality_score": "Excellent"
+  },
+  {
+    "source": "assets/source/property-d-bedroom.png",
+    "processed": "assets/processed/gallery/sj-infra-bedroom-interior.webp",
+    "website_location": "Gallery \u2014 Interiors",
+    "ratio": "4:3",
+    "dimensions": "900x674",
+    "processing": "Crop to 4:3, badge removed, enhanced",
+    "quality_score": "Good"
+  },
+  {
+    "source": "assets/source/property-h-exterior.png",
+    "processed": "assets/processed/gallery/sj-infra-residential-exterior-balconies.webp",
+    "website_location": "Gallery \u2014 Exteriors; Ram's Bungalow gallery",
+    "ratio": "4:3",
+    "dimensions": "900x675",
+    "processing": "Crop to 4:3, badge removed, enhanced",
+    "quality_score": "Excellent"
+  },
+  {
+    "source": "assets/source/property-b-vanity-mirror.png",
+    "processed": "assets/processed/gallery/sj-infra-dressing-area-interior.webp",
+    "website_location": "Gallery \u2014 Interiors",
+    "ratio": "4:5",
+    "dimensions": "900x1125",
+    "processing": "Crop to 4:5, badge removed, enhanced",
+    "quality_score": "Good"
+  },
+  {
+    "source": "assets/source/property-a-exterior-02.jpg",
+    "processed": "assets/processed/gallery/sj-infra-residential-exterior-dusk.webp",
+    "website_location": "Gallery \u2014 Exteriors; Ram's Bungalow gallery",
+    "ratio": "4:5",
+    "dimensions": "900x1125",
+    "processing": "Crop to 4:5, bottom video-scrubber-bar trimmed, enhanced",
+    "quality_score": "Good"
+  }
+]

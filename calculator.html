@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cost Calculator — SJ Infra, Ballari</title>
+<meta name="description" content="Get an indicative construction or interior fit-out cost estimate from SJ Infra, Ballari.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+<div class="mobile-menu" id="mobileMenu"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / Cost Calculator</div>
+      <span class="eyebrow">Plan your budget</span>
+      <h1 class="h1" style="margin-top:18px;">Get an indicative cost estimate.</h1>
+      <p class="lede" style="color:rgba(247,245,239,.75); margin-top:20px;">Uses the same per-sq-ft rates our engineers quote on-site. Final cost is confirmed after a site visit.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container" style="max-width:820px;">
+      <div class="calc-shell">
+        <div class="calc-progress" id="calcProgress"></div>
+
+        <!-- Step 1: Type -->
+        <div class="calc-step is-active" data-step="1">
+          <span class="eyebrow on-light">Step 1 of 4</span>
+          <h2 style="margin-top:16px;">What are you building?</h2>
+          <div class="opt-grid" id="typeOptions"></div>
+        </div>
+
+        <!-- Step 2: Category -->
+        <div class="calc-step" data-step="2">
+          <span class="eyebrow on-light">Step 2 of 4</span>
+          <h2 style="margin-top:16px;">Residential or commercial?</h2>
+          <div class="opt-grid" id="categoryOptions"></div>
+        </div>
+
+        <!-- Step 3: Area + Tier -->
+        <div class="calc-step" data-step="3">
+          <span class="eyebrow on-light">Step 3 of 4</span>
+          <h2 style="margin-top:16px;">Built-up area &amp; material tier</h2>
+          <div style="margin-top:30px;">
+            <label class="mono-tag">Built-up area (sq ft)</label>
+            <input type="range" min="300" max="6000" step="50" value="1200" id="areaRange" style="margin-top:14px;">
+            <div class="range-value"><span id="areaValue">1200</span> sq ft</div>
+          </div>
+          <div class="opt-grid" id="tierOptions" style="margin-top:34px;"></div>
+        </div>
+
+        <!-- Step 4: Result -->
+        <div class="calc-step" data-step="4">
+          <span class="eyebrow on-light">Step 4 of 4</span>
+          <h2 style="margin-top:16px;">Your indicative estimate</h2>
+          <div class="calc-result">
+            <p class="mono-tag" id="resultSummary">—</p>
+            <p class="amount" id="resultAmount">&#8377;0</p>
+            <p class="muted" style="font-size:13px; margin-top:10px;">This is an indicative range, not a final quote.</p>
+          </div>
+          <div class="disclaimer-box">
+            This estimate is generated from published per-sq-ft rates and does not account for plot-specific factors (soil condition, access, custom design work, brand-specific fittings). We'll confirm exact costs after a site visit.
+          </div>
+          <div class="hero-ctas" style="justify-content:center; margin-top:30px;">
+            <a href="contact.html" class="btn btn-gold">Get an Exact Quote <span class="btn-arrow">&#8599;</span></a>
+            <a href="tel:+918123543860" class="btn btn-outline on-light">Call Us Instead</a>
+          </div>
+        </div>
+
+        <div class="calc-nav">
+          <button class="btn btn-outline on-light" id="calcBack" style="visibility:hidden;">Back</button>
+          <button class="btn btn-gold" id="calcNext">Continue</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+<div class="floating-contact" id="floatingContact"></div>
+
+<script src="js/content.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const state = { type: "construction", category: "residential", tier: "standard", area: 1200 };
+  let step = 1;
+  const totalSteps = 4;
+
+  const progress = document.getElementById("calcProgress");
+  progress.innerHTML = Array.from({length: totalSteps}).map(() => `<span></span>`).join("");
+
+  function updateProgress(){
+    progress.querySelectorAll("span").forEach((s,i) => s.classList.toggle("is-done", i < step));
+  }
+
+  function renderTypeOptions(){
+    const opts = [
+      { id:"construction", title:"New Construction", desc:"Full structural build from foundation up." },
+      { id:"interior", title:"Interior Fit-Out", desc:"Design & finishing for an existing structure." }
+    ];
+    document.getElementById("typeOptions").innerHTML = opts.map(o => `
+      <div class="opt-card ${state.type===o.id?'is-selected':''}" data-val="${o.id}">
+        <h4>${o.title}</h4><p>${o.desc}</p>
+      </div>
+    `).join("");
+    attachOptCards("typeOptions", "type");
+  }
+
+  function renderCategoryOptions(){
+    const opts = [
+      { id:"residential", title:"Residential", desc:"Home, villa or apartment interior/build." },
+      { id:"commercial", title:"Commercial", desc:"Shop, office or commercial space." }
+    ];
+    document.getElementById("categoryOptions").innerHTML = opts.map(o => `
+      <div class="opt-card ${state.category===o.id?'is-selected':''}" data-val="${o.id}">
+        <h4>${o.title}</h4><p>${o.desc}</p>
+      </div>
+    `).join("");
+    attachOptCards("categoryOptions", "category");
+  }
+
+  function renderTierOptions(){
+    document.getElementById("tierOptions").innerHTML = CONSTRUCTION_TIERS.map(t => `
+      <div class="opt-card ${state.tier===t.id?'is-selected':''}" data-val="${t.id}">
+        <h4>${t.name}</h4><p>${t.desc}</p>
+      </div>
+    `).join("");
+    attachOptCards("tierOptions", "tier");
+  }
+
+  function attachOptCards(containerId, key){
+    document.getElementById(containerId).querySelectorAll(".opt-card").forEach(card => {
+      card.addEventListener("click", () => {
+        state[key] = card.dataset.val;
+        document.getElementById(containerId).querySelectorAll(".opt-card").forEach(c => c.classList.remove("is-selected"));
+        card.classList.add("is-selected");
+      });
+    });
+  }
+
+  const areaRange = document.getElementById("areaRange");
+  const areaValue = document.getElementById("areaValue");
+  areaRange.addEventListener("input", () => {
+    state.area = +areaRange.value;
+    areaValue.textContent = state.area.toLocaleString('en-IN');
+  });
+
+  function computeEstimate(){
+    let rate;
+    if(state.type === "construction"){
+      rate = CONSTRUCTION_TIERS.find(t => t.id === state.tier).rate;
+    } else {
+      rate = INTERIOR_RATES[state.category][state.tier];
+    }
+    const low = Math.round(rate * state.area * 0.92 / 1000) * 1000;
+    const high = Math.round(rate * state.area * 1.08 / 1000) * 1000;
+    return { low, high, rate };
+  }
+
+  function renderResult(){
+    const { low, high } = computeEstimate();
+    const typeLabel = state.type === "construction" ? "New Construction" : "Interior Fit-Out";
+    const tierLabel = CONSTRUCTION_TIERS.find(t => t.id === state.tier).name;
+    document.getElementById("resultSummary").textContent = `${typeLabel} \u00b7 ${state.category === 'residential' ? 'Residential' : 'Commercial'} \u00b7 ${tierLabel} \u00b7 ${state.area.toLocaleString('en-IN')} sq ft`;
+    document.getElementById("resultAmount").innerHTML = `&#8377;${low.toLocaleString('en-IN')} &ndash; &#8377;${high.toLocaleString('en-IN')}`;
+  }
+
+  function goToStep(n){
+    document.querySelectorAll(".calc-step").forEach(s => s.classList.toggle("is-active", +s.dataset.step === n));
+    document.getElementById("calcBack").style.visibility = n === 1 ? "hidden" : "visible";
+    document.getElementById("calcNext").textContent = n === totalSteps ? "Start Over" : "Continue";
+    step = n;
+    updateProgress();
+    if(n === totalSteps) renderResult();
+  }
+
+  document.getElementById("calcNext").addEventListener("click", () => {
+    if(step === totalSteps){ goToStep(1); return; }
+    goToStep(step + 1);
+  });
+  document.getElementById("calcBack").addEventListener("click", () => {
+    if(step > 1) goToStep(step - 1);
+  });
+
+  renderTypeOptions();
+  renderCategoryOptions();
+  renderTierOptions();
+  updateProgress();
+});
+</script>
+</body>
+</html>

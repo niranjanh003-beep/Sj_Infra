@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — SJ Infra, Ballari</title>
+<meta name="description" content="A look at SJ Infra's construction, interior and renovation projects across Ballari and the surrounding region.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+<div class="mobile-menu" id="mobileMenu"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / Projects</div>
+      <span class="eyebrow">Selected work</span>
+      <h1 class="h1" style="margin-top:18px;">Projects across the region.</h1>
+      <p class="lede" style="color:rgba(247,245,239,.75); margin-top:20px;">A representative look at the kind of work SJ Infra takes on — residential, commercial, interior and layout projects, across ten towns.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="disclaimer-box" style="margin-bottom:44px;">
+        <strong>Note:</strong> two entries below (Ram's Bungalow, Bharathiya Milk Products) use real SJ Infra site photography sourced from the company's photo library. The remaining cards are still placeholder entries pending real project names and photography — replace them before publishing this page.
+      </div>
+      <div class="filter-bar" id="filterBar"></div>
+      <div class="project-grid" id="projectGrid"></div>
+    </div>
+  </section>
+
+  <section class="section-forest text-center">
+    <div class="container">
+      <h2 style="max-width:22ch; margin:0 auto;">Have a project you'd like to see built this way?</h2>
+      <div class="hero-ctas" style="justify-content:center; margin-top:34px;">
+        <a href="contact.html" class="btn btn-gold">Start Your Project <span class="btn-arrow">&#8599;</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+<div class="floating-contact" id="floatingContact"></div>
+
+<script src="js/content.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const filterBar = document.getElementById("filterBar");
+  const grid = document.getElementById("projectGrid");
+
+  function renderGrid(filter){
+    const list = filter === "All" ? PROJECTS : PROJECTS.filter(p => p.category === filter);
+    grid.innerHTML = list.map(p => `
+      <a href="projects/sample-project.html?id=${p.id}" class="project-card" data-cat="${p.category}">
+        <div class="project-media">
+          ${p.cover
+            ? `<img src="${p.cover}" alt="${p.title}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+               <div class="project-media-scrim"></div>`
+            : `<div class="ph-shine"><div class="ph-diagonal"></div></div>
+               <span class="project-photo-flag">Photography pending</span>`}
+          <div class="project-top-row">
+            <span class="project-cat-pill">${p.category}</span>
+            <span class="project-status-pill">${p.status}</span>
+          </div>
+          <div class="project-bottom-overlay">
+            <span class="project-metric">${p.area}</span>
+            <span class="project-goto">&#8599;</span>
+          </div>
+        </div>
+        <div class="project-meta">
+          <h3>${p.title}</h3>
+          <p class="loc">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.4 7 11.5 7.3 11.7.2.2.5.3.7.3s.5-.1.7-.3C13 21.5 20 15.4 20 10c0-4.4-3.6-8-8-8zm0 11c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3z"/></svg>
+            ${p.location}
+          </p>
+        </div>
+      </a>
+    `).join("");
+  }
+
+  filterBar.innerHTML = PROJECT_CATEGORIES.map((c,i) => `<button class="filter-btn ${i===0?'is-active':''}" data-cat="${c}">${c}</button>`).join("");
+  filterBar.querySelectorAll(".filter-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      filterBar.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+      renderGrid(btn.dataset.cat);
+    });
+  });
+
+  renderGrid("All");
+});
+</script>
+</body>
+</html>

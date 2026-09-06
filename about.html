@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About SJ Infra — Construction & Interiors Studio, Ballari</title>
+<meta name="description" content="SJ Infra is a Ballari-based construction and interior design studio serving ten towns across North Karnataka and the Andhra border.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+<div class="mobile-menu" id="mobileMenu"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / About</div>
+      <span class="eyebrow">About SJ Infra</span>
+      <h1 class="h1" style="margin-top:18px;">Built on-site, not on a sales script.</h1>
+      <p class="lede" style="color:rgba(247,245,239,.75); margin-top:20px;">SJ Infra is a construction and interiors studio based in Gandhinagar, Ballari, working across ten towns in North Karnataka and the neighbouring Andhra Pradesh border.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container grid-2">
+      <div class="photo-block" style="min-height:440px;">
+        <img src="assets/processed/gallery/sj-infra-carved-entrance-door.webp" alt="Stone-carved entrance detailing on an SJ Infra project" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="reveal">
+        <span class="eyebrow on-light">Our story</span>
+        <h2 style="margin-top:18px;">A studio built around one accountable team.</h2>
+        <p class="lede" style="max-width:none; margin-top:22px;">Most construction in this region moves through a chain of separate contractors — one for the shell, another for plumbing, another for interiors — with no single party accountable for how it all fits together. SJ Infra runs the opposite way: one engineering-led team carries a project from the first site visit to the final coat of paint.</p>
+        <p class="lede" style="max-width:none; margin-top:16px;">That structure is what makes itemised, transparent pricing possible — when one team owns the whole job, there's nowhere for costs to hide between contractors.</p>
+        <p class="placeholder-flag" style="margin-top:24px;">Placeholder — add founding year, founder name/background and company registration details here once confirmed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-dark">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="eyebrow">What guides us</span><h2 style="margin-top:18px;">Three commitments, on every site.</h2></div>
+      </div>
+      <div class="grid-3" style="background:transparent;">
+        <div class="diff-card reveal"><div class="icon">&#9737;</div><h3>Uncompromising Quality</h3><p>Every pour, every joint, every finish inspected by our site engineer — nothing hidden behind plaster.</p></div>
+        <div class="diff-card reveal"><div class="icon">&#9670;</div><h3>Premium Material Sourcing</h3><p>Direct vendor relationships mean grade-checked materials and itemised costs, not marked-up guesswork.</p></div>
+        <div class="diff-card reveal"><div class="icon">&#9679;</div><h3>Transparent Communication</h3><p>Clients see the cost sheet, the material tier and the site timeline — before the work starts, not after.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-ivory">
+    <div class="container">
+      <div class="text-center" style="max-width:640px; margin:0 auto 50px;">
+        <span class="eyebrow on-light" style="justify-content:center;">Where we work</span>
+        <h2 style="margin-top:18px;">Ten towns across North Karnataka &amp; the Andhra border.</h2>
+      </div>
+      <div class="text-center" id="areaTagsAbout"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="text-center" style="margin-bottom:40px;">
+        <span class="eyebrow on-light" style="justify-content:center;">Client words</span>
+        <h2 style="margin-top:18px;">What it's like to build with us.</h2>
+      </div>
+      <div class="testi-card" id="testiTrack"></div>
+      <div class="testi-controls" id="testiDots"></div>
+    </div>
+  </section>
+
+  <section class="section-dark text-center">
+    <div class="container">
+      <h2 style="max-width:20ch; margin:0 auto;">Want the team behind this to walk your plot?</h2>
+      <div class="hero-ctas" style="justify-content:center; margin-top:34px;">
+        <a href="contact.html" class="btn btn-gold">Book a Site Visit <span class="btn-arrow">&#8599;</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+<div class="floating-contact" id="floatingContact"></div>
+
+<script src="js/content.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("areaTagsAbout").innerHTML = SITE.serviceAreas.map(a => `<span class="tag">${a}</span>`).join("");
+});
+</script>
+</body>
+</html>
