@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — SJ Infra, Ballari</title>
+<meta name="description" content="Construction, interiors, layout planning, exteriors, renovation and project management services from SJ Infra, Ballari.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+<div class="mobile-menu" id="mobileMenu"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / Services</div>
+      <span class="eyebrow">What we do</span>
+      <h1 class="h1" style="margin-top:18px;">Seven disciplines. One team.</h1>
+      <p class="lede" style="color:rgba(247,245,239,.75); margin-top:20px;">From the first structural pour to the last coat of paint — every discipline below is delivered by the same accountable site-engineering team.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div id="serviceListFull"></div>
+    </div>
+  </section>
+
+  <section class="section-forest">
+    <div class="container grid-2">
+      <div class="reveal">
+        <span class="eyebrow">Not sure where to start?</span>
+        <h2 style="margin-top:18px;">Get an indicative budget before your first call.</h2>
+        <p class="lede" style="color:rgba(247,245,239,.72); margin-top:20px;">Our cost calculator uses the same per-sq-ft rates our engineers quote on-site — construction, interiors or both.</p>
+        <a href="calculator.html" class="btn btn-gold" style="margin-top:28px;">Open Cost Calculator <span class="btn-arrow">&#8599;</span></a>
+      </div>
+      <div class="photo-block reveal" style="min-height:300px;">
+        <img src="assets/processed/interiors/innovation-staircase.webp" alt="Floating staircase detail, an example of SJ Infra's finish quality" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+<div class="floating-contact" id="floatingContact"></div>
+
+<script src="js/content.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("serviceListFull").innerHTML = SERVICES.map(s => `
+    <a href="services/${s.id}.html" class="service-row reveal">
+      <span class="service-num">${s.num}</span>
+      <h3>${s.title}</h3>
+      <p class="muted">${s.short}</p>
+      <span class="service-arrow">&#8599;</span>
+    </a>
+  `).join("");
+  initRevealOnScroll();
+});
+</script>
+</body>
+</html>

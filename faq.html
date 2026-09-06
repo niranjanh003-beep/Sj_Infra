@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ — SJ Infra, Ballari</title>
+<meta name="description" content="Frequently asked questions about SJ Infra's construction and interior design services in Ballari.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+<div class="mobile-menu" id="mobileMenu"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / FAQ</div>
+      <span class="eyebrow">Common questions</span>
+      <h1 class="h1" style="margin-top:18px;">Frequently asked questions.</h1>
+    </div>
+  </section>
+
+  <section>
+    <div class="container" style="max-width:820px;">
+      <div id="faqList"></div>
+    </div>
+  </section>
+
+  <section class="section-dark text-center">
+    <div class="container">
+      <h2 style="max-width:20ch; margin:0 auto;">Still have a question?</h2>
+      <div class="hero-ctas" style="justify-content:center; margin-top:34px;">
+        <a href="contact.html" class="btn btn-gold">Ask Us Directly <span class="btn-arrow">&#8599;</span></a>
+        <a href="tel:+918123543860" class="btn btn-outline on-dark">Call +91 81235 43860</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+<div class="floating-contact" id="floatingContact"></div>
+
+<script src="js/content.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("faqList").innerHTML = FAQS.map(f => `
+    <div class="faq-item">
+      <button class="faq-q"><span>${f.q}</span><span class="plus">+</span></button>
+      <div class="faq-a"><p>${f.a}</p></div>
+    </div>
+  `).join("");
+  initFAQAccordion();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — SJ Infra, Ballari</title>
+<meta name="description" content="Photo gallery of SJ Infra construction, interiors and site progress.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+<div class="mobile-menu" id="mobileMenu"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / Gallery</div>
+      <span class="eyebrow">In pictures</span>
+      <h1 class="h1" style="margin-top:18px;">Site &amp; project gallery.</h1>
+      <p class="lede" style="color:rgba(247,245,239,.75); margin-top:20px;">A visual record of construction, interiors and finishing across our sites.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="filter-bar" id="galFilterBar"></div>
+      <div class="gallery-masonry" id="galleryGrid"></div>
+    </div>
+  </section>
+</main>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous">&#8592;</button>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next">&#8594;</button>
+  <div class="lightbox-inner">
+    <img id="lightboxImage" style="min-height:60vh; max-height:80vh; width:auto; max-width:100%; display:block; margin:0 auto;" alt="">
+    <p id="lightboxLabel" style="text-align:center; color:var(--ivory); margin-top:14px; font-size:13px; letter-spacing:.04em;"></p>
+  </div>
+</div>
+
+<footer class="site-footer" id="site-footer"></footer>
+<div class="floating-contact" id="floatingContact"></div>
+
+<script src="js/content.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const items = GALLERY_ITEMS;
+  const grid = document.getElementById("galleryGrid");
+  const filterBar = document.getElementById("galFilterBar");
+
+  const heights = [300, 220, 360, 260, 320, 240, 380, 280];
+  function renderGallery(filter){
+    const list = filter === "All" ? items : items.filter(i => i.cat === filter);
+    grid.innerHTML = list.map((it, idx) => `
+      <figure class="gallery-item reveal photo-block" data-idx="${idx}" data-label="${it.label}" style="min-height:${heights[idx % heights.length]}px;">
+        <img src="${it.src}" alt="${it.label}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+        <figcaption>${it.label}</figcaption>
+      </figure>
+    `).join("");
+    initRevealOnScroll();
+    attachLightbox(list);
+  }
+
+  filterBar.innerHTML = GALLERY_CATEGORIES.map((c,i) => `<button class="filter-btn ${i===0?'is-active':''}" data-cat="${c}">${c}</button>`).join("");
+  filterBar.querySelectorAll(".filter-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      filterBar.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+      renderGallery(btn.dataset.cat);
+    });
+  });
+
+  const lightbox = document.getElementById("lightbox");
+  const lightboxLabel = document.getElementById("lightboxLabel");
+  const lightboxImage = document.getElementById("lightboxImage");
+  let currentList = [];
+  let currentIdx = 0;
+
+  function openLightbox(list, idx){
+    currentList = list; currentIdx = idx;
+    lightboxImage.src = list[idx].src;
+    lightboxImage.alt = list[idx].label;
+    lightboxLabel.textContent = list[idx].label;
+    lightbox.classList.add("is-open");
+  }
+  function attachLightbox(list){
+    grid.querySelectorAll(".gallery-item").forEach(el => {
+      el.addEventListener("click", () => openLightbox(list, +el.dataset.idx));
+    });
+  }
+  document.getElementById("lightboxClose").addEventListener("click", () => lightbox.classList.remove("is-open"));
+  document.getElementById("lightboxNext").addEventListener("click", () => { currentIdx = (currentIdx+1) % currentList.length; lightboxImage.src = currentList[currentIdx].src; lightboxLabel.textContent = currentList[currentIdx].label; });
+  document.getElementById("lightboxPrev").addEventListener("click", () => { currentIdx = (currentIdx-1+currentList.length) % currentList.length; lightboxImage.src = currentList[currentIdx].src; lightboxLabel.textContent = currentList[currentIdx].label; });
+  lightbox.addEventListener("click", (e) => { if(e.target === lightbox) lightbox.classList.remove("is-open"); });
+  document.addEventListener("keydown", (e) => { if(e.key === "Escape") lightbox.classList.remove("is-open"); });
+
+  renderGallery("All");
+});
+</script>
+</body>
+</html>

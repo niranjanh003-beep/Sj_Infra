@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — SJ Infra, Ballari</title>
+<meta name="description" content="Get in touch with SJ Infra for construction, interiors and renovation projects in Ballari and surrounding towns.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+<div class="mobile-menu" id="mobileMenu"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / Contact</div>
+      <span class="eyebrow">Let's talk</span>
+      <h1 class="h1" style="margin-top:18px;">Start your project.</h1>
+      <p class="lede" style="color:rgba(247,245,239,.75); margin-top:20px;">Call, WhatsApp, or send your details below — our team will get back to you to schedule a site visit.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container grid-2" style="align-items:flex-start;">
+      <div>
+        <h2>Send us your details</h2>
+        <form class="form-grid" id="contactForm" style="margin-top:26px;">
+          <div class="field">
+            <label for="fName">Full Name</label>
+            <input type="text" id="fName" name="name" required>
+          </div>
+          <div class="field">
+            <label for="fPhone">Phone Number</label>
+            <input type="tel" id="fPhone" name="phone" required>
+          </div>
+          <div class="field full">
+            <label for="fEmail">Email (optional)</label>
+            <input type="email" id="fEmail" name="email">
+          </div>
+          <div class="field full">
+            <label for="fService">Service Needed</label>
+            <select id="fService" name="service">
+              <option value="">Select a service</option>
+              <option>Residential Construction</option>
+              <option>Commercial Construction</option>
+              <option>Interior Design &amp; Fit-Out</option>
+              <option>Exterior &amp; Facade Design</option>
+              <option>Layout &amp; Space Planning</option>
+              <option>Renovation &amp; Remodeling</option>
+              <option>Project Management &amp; Consultation</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="fMessage">Tell us about your project</label>
+            <textarea id="fMessage" name="message" placeholder="Plot location, approximate area, timeline..."></textarea>
+          </div>
+          <div class="field full">
+            <button type="submit" class="btn btn-gold" style="width:100%; justify-content:center;">Send Enquiry <span class="btn-arrow">&#8599;</span></button>
+            <p class="form-note">This form is a front-end demo — it does not currently send data anywhere. Connect it to email/CRM before going live, or use the phone/WhatsApp/email links directly until then.</p>
+          </div>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <h3 style="color:var(--ivory);">Thank you — enquiry noted.</h3>
+          <p style="margin-top:10px; color:rgba(247,245,239,.75);">In a live version of this site, our team would now be notified and would reach out to schedule your site visit. For now, please call or WhatsApp us directly using the details alongside this form.</p>
+        </div>
+      </div>
+
+      <div class="stack">
+        <div class="diff-card" style="background:var(--forest-950);">
+          <h3 style="color:var(--ivory);">Call or WhatsApp</h3>
+          <p style="color:rgba(247,245,239,.7); margin-top:10px;">Fastest way to reach us directly.</p>
+          <div style="display:flex; gap:14px; margin-top:20px; flex-wrap:wrap;">
+            <a href="tel:+918123543860" class="btn btn-outline on-dark">Call +91 81235 43860</a>
+            <a href="https://wa.me/918123543860" target="_blank" rel="noopener" class="btn btn-outline on-dark">WhatsApp</a>
+          </div>
+        </div>
+        <div class="diff-card" style="background:var(--forest-950);">
+          <h3 style="color:var(--ivory);">Email</h3>
+          <p style="color:rgba(247,245,239,.7); margin-top:10px;"><a href="mailto:sjinfra5@gmail.com" style="color:var(--gold-soft);">sjinfra5@gmail.com</a></p>
+        </div>
+        <div class="diff-card" style="background:var(--forest-950);">
+          <h3 style="color:var(--ivory);">Office</h3>
+          <p style="color:rgba(247,245,239,.7); margin-top:10px;">Behind SUCO Bank, Gopalaswamy Road,<br>Gandhinagar, Bellary, Karnataka 583103</p>
+          <a href="https://maps.google.com/?q=SJ+Infra+Gopalaswamy+Road+Gandhinagar+Bellary+583103" target="_blank" rel="noopener" class="btn btn-outline on-dark" style="margin-top:16px;">Open in Maps <span class="btn-arrow">&#8599;</span></a>
+        </div>
+        <div class="photo-block light" style="min-height:220px;">
+          <iframe
+            src="https://maps.google.com/maps?q=SJ+Infra+Gopalaswamy+Road+Gandhinagar+Bellary+583103&output=embed"
+            style="width:100%;height:100%;min-height:220px;border:0;display:block;"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="SJ Infra office location — Gopalaswamy Road, Gandhinagar, Bellary">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-ivory">
+    <div class="container">
+      <div class="text-center" style="max-width:640px; margin:0 auto;">
+        <span class="eyebrow on-light" style="justify-content:center;">Service area</span>
+        <h2 style="margin-top:18px;">We build across ten towns.</h2>
+      </div>
+      <div class="text-center" id="areaTagsContact" style="margin-top:26px;"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+<div class="floating-contact" id="floatingContact"></div>
+
+<script src="js/content.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("areaTagsContact").innerHTML = SITE.serviceAreas.map(a => `<span class="tag">${a}</span>`).join("");
+});
+</script>
+</body>
+</html>

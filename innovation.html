@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Innovation & Materials — SJ Infra, Ballari</title>
+<meta name="description" content="How SJ Infra sources materials and approaches build quality on every site.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+<div class="mobile-menu" id="mobileMenu"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / Innovation</div>
+      <span class="eyebrow">Materials &amp; approach</span>
+      <h1 class="h1" style="margin-top:18px;">Grade-checked materials, itemised end to end.</h1>
+      <p class="lede" style="color:rgba(247,245,239,.75); margin-top:20px;">SJ Infra's three-tier system exists so you always know what grade of material is going into your build — before it's behind a wall.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div><span class="eyebrow on-light">Material tiers</span><h2 style="margin-top:18px;">Basic, Standard, Premium — priced per sq ft.</h2></div>
+      </div>
+      <table class="spec-table" id="tierTable">
+        <thead><tr><th>Tier</th><th>Indicative Rate</th><th>What it means</th></tr></thead>
+        <tbody id="tierTableBody"></tbody>
+      </table>
+      <p class="muted" style="margin-top:16px; font-size:13px;">Rates are per sq ft for construction-only work, as used in our cost calculator. Final pricing is confirmed after a site visit.</p>
+    </div>
+  </section>
+
+  <section class="section-dark">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="eyebrow">Our approach</span><h2 style="margin-top:18px;">Quality control that doesn't wait for the finish.</h2></div>
+      </div>
+      <div class="grid-3" style="background:transparent;">
+        <div class="diff-card reveal"><div class="icon">&#9737;</div><h3>Stage-Wise Inspection</h3><p>Our site engineer signs off on structural, electrical and plumbing stages before the next stage begins — not after plaster covers the work.</p></div>
+        <div class="diff-card reveal"><div class="icon">&#9670;</div><h3>Direct Vendor Sourcing</h3><p>Materials are sourced through direct vendor relationships, so grade and pricing are verifiable rather than routed through a marked-up middleman.</p></div>
+        <div class="diff-card reveal"><div class="icon">&#9679;</div><h3>Itemised Cost Sheets</h3><p>Every quote breaks down cost by material and labour line item, so you can see exactly where the budget is going at each tier.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-ivory">
+    <div class="container">
+      <div class="disclaimer-box">
+        <strong>Placeholder:</strong> add any specific material brand partnerships, certifications, or proprietary construction techniques here once confirmed — none are currently published or verifiable, so none are claimed on this page.
+      </div>
+    </div>
+  </section>
+
+  <section class="section-dark text-center">
+    <div class="container">
+      <h2 style="max-width:20ch; margin:0 auto;">See the tiers applied to your own plot size.</h2>
+      <div class="hero-ctas" style="justify-content:center; margin-top:34px;">
+        <a href="calculator.html" class="btn btn-gold">Open Cost Calculator <span class="btn-arrow">&#8599;</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+<div class="floating-contact" id="floatingContact"></div>
+
+<script src="js/content.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("tierTableBody").innerHTML = CONSTRUCTION_TIERS.map(t => `
+    <tr><td><strong>${t.name}</strong></td><td>&#8377;${t.rate.toLocaleString('en-IN')} / sq ft</td><td>${t.desc}</td></tr>
+  `).join("");
+});
+</script>
+</body>
+</html>
