@@ -41,6 +41,56 @@
     <div class="scroll-cue"><span>Scroll</span><span class="line"></span></div>
   </section>
 
+  <!-- QUICK COST ESTIMATOR -->
+  <section class="quick-calc-section">
+    <div class="container">
+      <div class="quick-calc reveal is-visible">
+        <div class="quick-calc-head">
+          <span class="eyebrow on-light">Plan your budget</span>
+          <h2 style="margin-top:18px;">Quick cost estimator</h2>
+          <p class="lede">Choose your build type, area and material tier for an indicative range — then send it to us as an enquiry in one click.</p>
+        </div>
+        <div class="quick-calc-grid">
+          <div class="field">
+            <label for="qcType">Build Type</label>
+            <select id="qcType">
+              <option value="construction">New Construction</option>
+              <option value="interior">Interior Fit-Out</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="qcCategory">Category</label>
+            <select id="qcCategory">
+              <option value="residential">Residential</option>
+              <option value="commercial">Commercial</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="qcTier">Material Tier</label>
+            <select id="qcTier">
+              <option value="basic">Basic</option>
+              <option value="standard" selected>Standard</option>
+              <option value="premium">Premium</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="qcArea">Built-up Area (sq ft)</label>
+            <input type="number" id="qcArea" min="100" step="50" value="1200" inputmode="numeric">
+          </div>
+        </div>
+        <div class="quick-calc-result">
+          <span class="mono-tag" id="qcSummary">&mdash;</span>
+          <span class="amount" id="qcAmount">&#8377;0</span>
+        </div>
+        <div class="quick-calc-actions">
+          <button type="button" class="btn btn-gold" id="qcSubmit">Send This Estimate as Enquiry <span class="btn-arrow">&#8599;</span></button>
+          <a href="calculator.html" class="btn btn-outline on-light">Full Calculator</a>
+        </div>
+        <p class="muted" style="font-size:12px; margin-top:16px;">Indicative only — final cost is confirmed after a site visit.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- TRUST STRIP -->
   <section class="trust-strip">
     <div class="container">
@@ -107,7 +157,7 @@
         <div class="diff-card reveal">
           <div class="icon">&#9679;</div>
           <h3>One Team, Start to Finish</h3>
-          <p>Construction, interiors and layout planning run under a single accountable team — not handed off between contractors.</p>
+          <p>Construction, interiors and layout planning run under a single accountable team not handed off between contractors.</p>
         </div>
       </div>
     </div>
@@ -284,6 +334,52 @@
 
     // Service area tags
     document.getElementById("areaTags").innerHTML = SITE.serviceAreas.map(a => `<span class="tag">${a}</span>`).join("");
+
+    // Quick cost estimator
+    const qcType = document.getElementById("qcType");
+    const qcCategory = document.getElementById("qcCategory");
+    const qcTier = document.getElementById("qcTier");
+    const qcArea = document.getElementById("qcArea");
+    const qcSummary = document.getElementById("qcSummary");
+    const qcAmount = document.getElementById("qcAmount");
+
+    const SERVICE_LABELS = {
+      "construction-residential": "Residential Construction",
+      "construction-commercial": "Commercial Construction",
+      "interior-residential": "Interior Design & Fit-Out",
+      "interior-commercial": "Interior Design & Fit-Out"
+    };
+
+    function qcEstimate(){
+      const type = qcType.value, category = qcCategory.value, tier = qcTier.value;
+      const area = Math.max(100, +qcArea.value || 0);
+      const rate = type === "construction"
+        ? CONSTRUCTION_TIERS.find(t => t.id === tier).rate
+        : INTERIOR_RATES[category][tier];
+      const low = Math.round(rate * area * 0.92 / 1000) * 1000;
+      const high = Math.round(rate * area * 1.08 / 1000) * 1000;
+      return { type, category, tier, area, low, high };
+    }
+
+    function qcRender(){
+      const { type, category, tier, area, low, high } = qcEstimate();
+      const typeLabel = type === "construction" ? "New Construction" : "Interior Fit-Out";
+      const catLabel = category === "residential" ? "Residential" : "Commercial";
+      const tierLabel = CONSTRUCTION_TIERS.find(t => t.id === tier).name;
+      qcSummary.textContent = `${typeLabel} · ${catLabel} · ${tierLabel} · ${area.toLocaleString('en-IN')} sq ft`;
+      qcAmount.innerHTML = `&#8377;${low.toLocaleString('en-IN')} &ndash; &#8377;${high.toLocaleString('en-IN')}`;
+    }
+
+    [qcType, qcCategory, qcTier, qcArea].forEach(el => el.addEventListener("input", qcRender));
+    qcRender();
+
+    document.getElementById("qcSubmit").addEventListener("click", () => {
+      const { type, category, low, high } = qcEstimate();
+      const service = SERVICE_LABELS[`${type}-${category}`];
+      const message = `Quick estimate request: ${qcSummary.textContent}. Estimated ₹${low.toLocaleString('en-IN')}–₹${high.toLocaleString('en-IN')}. Please share an exact quote.`;
+      const params = new URLSearchParams({ service, message });
+      window.location.href = `contact.html?${params.toString()}#contactForm`;
+    });
 
     initRevealOnScroll();
   });

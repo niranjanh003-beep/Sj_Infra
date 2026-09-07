@@ -72,8 +72,8 @@
           <h3 style="color:var(--ivory);">Call or WhatsApp</h3>
           <p style="color:rgba(247,245,239,.7); margin-top:10px;">Fastest way to reach us directly.</p>
           <div style="display:flex; gap:14px; margin-top:20px; flex-wrap:wrap;">
-            <a href="tel:+91 81238 39596" class="btn btn-outline on-dark">Call +91 81238 39596</a>
-            <a href="https://wa.me/918123839596" target="_blank" rel="noopener" class="btn btn-outline on-dark">WhatsApp</a>
+            <a href="tel:+918123543860" class="btn btn-outline on-dark">Call +91 81235 43860</a>
+            <a href="https://wa.me/918123543860" target="_blank" rel="noopener" class="btn btn-outline on-dark">WhatsApp</a>
           </div>
         </div>
         <div class="diff-card" style="background:var(--forest-950);">
@@ -117,6 +117,21 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("areaTagsContact").innerHTML = SITE.serviceAreas.map(a => `<span class="tag">${a}</span>`).join("");
+
+  // Prefill from the homepage quick cost estimator (?service=...&message=...)
+  const params = new URLSearchParams(window.location.search);
+  const service = params.get("service");
+  const message = params.get("message");
+  if(service || message){
+    const fService = document.getElementById("fService");
+    const fMessage = document.getElementById("fMessage");
+    if(service){
+      const match = Array.from(fService.options).find(o => o.value === service || o.textContent === service);
+      if(match) fService.value = match.value;
+    }
+    if(message) fMessage.value = message;
+    document.getElementById("contactForm").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 });
 </script>
 </body>
