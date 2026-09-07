@@ -189,7 +189,7 @@ const GALLERY_ITEMS = [
   { cat:"Exteriors",   src:"assets/processed/gallery/sj-infra-residential-exterior-balconies.webp",                label:"Residential exterior, cantilevered balconies" },
   { cat:"Exteriors",   src:"assets/processed/gallery/sj-infra-residential-exterior-dusk.webp",                label:"Residential exterior, dusk" },
   { cat:"Interiors",   src:"assets/processed/interiors/interior-hero.webp",           label:"Living space — marble flooring & natural light" },
-  { cat:"Interiors",   src:"assets/processed/hero/home-hero-1440.webp",               label:"Double-height living space with glass elevator" },
+  { cat:"Interiors",   src:"assets/processed/hero/home-hero-full.webp",               label:"Double-height living space with glass elevator" },
   { cat:"Interiors",   src:"assets/processed/interiors/about-teaser.webp",            label:"Staircase & glass balustrade detail" },
   { cat:"Interiors",   src:"assets/processed/interiors/innovation-staircase.webp",    label:"Floating staircase with backlit wood panelling" },
   { cat:"Interiors",   src:"assets/processed/interiors/calculator-preview.webp",      label:"Modular kitchen, geometric false ceiling" },

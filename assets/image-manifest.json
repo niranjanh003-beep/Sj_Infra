@@ -1,48 +1,30 @@
 [
   {
     "source": "assets/source/property-c-livingroom-wide.png",
-    "processed": "assets/processed/hero/home-hero-1920.webp",
-    "website_location": "Homepage hero (1920w)",
-    "ratio": "21:9",
-    "dimensions": "1920x822",
-    "processing": "Crop to 21:9, remove phone-UI badge, contrast+color+sharpen enhance, resize",
-    "quality_score": "Excellent"
-  },
-  {
-    "source": "assets/source/property-c-livingroom-wide.png",
-    "processed": "assets/processed/hero/home-hero-1440.webp",
-    "website_location": "Homepage hero (1440w)",
-    "ratio": "21:9",
-    "dimensions": "1440x616",
-    "processing": "Same as above, resized",
-    "quality_score": "Excellent"
-  },
-  {
-    "source": "assets/source/property-c-livingroom-wide.png",
-    "processed": "assets/processed/hero/home-hero-1024.webp",
-    "website_location": "Homepage hero (1024w)",
-    "ratio": "21:9",
-    "dimensions": "1024x438",
-    "processing": "Same as above, resized",
-    "quality_score": "Excellent"
+    "processed": "assets/processed/hero/home-hero-full.webp",
+    "website_location": "Homepage hero (943w, native resolution ceiling)",
+    "ratio": "9:16",
+    "dimensions": "943x1667",
+    "processing": "Crop, contrast+color+sharpen enhance, re-encoded webp q80",
+    "quality_score": "Good"
   },
   {
     "source": "assets/source/property-c-livingroom-wide.png",
     "processed": "assets/processed/hero/home-hero-768.webp",
     "website_location": "Homepage hero (768w, mobile)",
-    "ratio": "16:9",
-    "dimensions": "768x328",
-    "processing": "Same as above, resized for mobile",
-    "quality_score": "Excellent"
+    "ratio": "9:16",
+    "dimensions": "768x1358",
+    "processing": "Downscaled from home-hero-full, webp q80",
+    "quality_score": "Good"
   },
   {
     "source": "assets/source/property-c-livingroom-wide.png",
     "processed": "assets/processed/hero/home-hero-480.webp",
     "website_location": "Homepage hero (480w, mobile)",
-    "ratio": "16:9",
-    "dimensions": "480x205",
-    "processing": "Same as above, resized for mobile",
-    "quality_score": "Excellent"
+    "ratio": "9:16",
+    "dimensions": "480x849",
+    "processing": "Downscaled from home-hero-full, webp q80",
+    "quality_score": "Good"
   },
   {
     "source": "assets/source/property-c-elevator-stairs.png",
