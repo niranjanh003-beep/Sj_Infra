@@ -63,7 +63,7 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const svc = SERVICES.find(s => s.id === "renovation");
-  const svcImg = SERVICE_IMAGES[svc.id];
+  const svcImg = `../assets/processed/services/renovation/${svc.heroImg}`;
   if (svcImg) {
     document.getElementById("svcHeroMedia").innerHTML = `<img src="${relPrefix()}${svcImg}" alt="${svc.title} — SJ Infra, Ballari" loading="lazy" style="width:100%;height:100%;object-fit:cover;">`;
   }
